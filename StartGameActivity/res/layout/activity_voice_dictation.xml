@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3f4d94"
+    tools:context=".VoiceDictationActivity">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <TextView
+        android:id="@+id/ref_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/verse_content"
+        android:gravity="right"
+        android:keepScreenOn="true"
+        android:text="Reference"
+        android:textColor="#88eafa"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/verse_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="left"
+        android:keepScreenOn="true"
+        android:text="Verse"
+        android:textColor="#88eafa"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/comment_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ref_content"
+        android:gravity="left"
+        android:keepScreenOn="true"
+        android:text="Comment"
+        android:textColor="#88eafa"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
