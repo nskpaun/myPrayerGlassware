@@ -62,7 +62,7 @@ public class SetupActivity extends Activity{
 		pb.verse = data.getStringExtra(PrayerBlock.VERSE);
 		pb.comment = data.getStringExtra(PrayerBlock.COMM);
 		pb.reference = data.getStringExtra(PrayerBlock.REF);
-		
+		Log.d(TAG, "comment: "+pb.comment);
 		prayer.addBlock(pb);
 		
 	}

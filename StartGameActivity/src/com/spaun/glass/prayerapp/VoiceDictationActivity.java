@@ -43,6 +43,8 @@ public class VoiceDictationActivity extends Activity
     	intent.putExtra(PrayerBlock.VERSE, verse);
     	intent.putExtra(PrayerBlock.REF, ref);
     	intent.putExtra(PrayerBlock.COMM, comment);
+    	
+    	Log.d(TAG, "comment: "+comment);
     	setResult(RESULT_OK, intent);	
         super.onDestroy();
     }

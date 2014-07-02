@@ -206,6 +206,8 @@ public abstract class BaseGameActivity extends Activity {
     /** Updates the main phrase label and score bar with the current state of the game. */
     public void updateDisplay() {
         getCurrentTextView().setText(superPrayer.getCurrentBlock().verse);
+        TextView refText = (TextView) mPhraseFlipper.findViewById(R.id.reference_text);
+        refText.setText(superPrayer.getCurrentBlock().reference);
         getCurrentTextView().setTextColor(Color.WHITE);
         mGameState.setText(buildScoreBar());
         superPrayer.next();
@@ -217,12 +219,12 @@ public abstract class BaseGameActivity extends Activity {
      */
     private CharSequence buildScoreBar() {
         SpannableStringBuilder builder = new SpannableStringBuilder();
-        for (int i = 0; i < mModel.getPhraseCount(); i++) {
+        for (int i = 0; i < superPrayer.getBlockCount(); i++) {
             if (i > 0) {
                 builder.append(' ');
             }
 
-            if (i == mModel.getCurrentPhraseIndex()) {
+            if (i == superPrayer.getCurrentPrayerIndex()) {
                 builder.append(HOLLOW_CIRCLE);
                 builder.setSpan(new ForegroundColorSpan(CURRENT_PHRASE_COLOR),
                         builder.length() - 1, builder.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -237,9 +239,9 @@ public abstract class BaseGameActivity extends Activity {
 
     /** Returns the {@code TextView} inside the flipper that is currently on-screen. */
     private TextView getCurrentTextView() {
-        return (TextView) mPhraseFlipper.getCurrentView();
+        return (TextView) mPhraseFlipper.getCurrentView().findViewById(R.id.verse_text);
     }
-
+    
     /** Returns true if gestures should be processed or false if they should be ignored. */
     private boolean areGesturesEnabled() {
         return mGesturesEnabled;

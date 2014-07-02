@@ -25,7 +25,7 @@ public class Prayer {
 	static final String NAME = "Name";
 	static final String TAG = "PRAYER";
 	String prayerId;
-	public ArrayList<PrayerBlock> blocks;
+	private ArrayList<PrayerBlock> blocks;
 	Integer currentPrayer; 
 	
 	ParseObject pObj;
@@ -58,6 +58,7 @@ public class Prayer {
 			List<ParseObject> list = query.find();
 			Log.d(TAG, "got pb list of size: "+list.size());
 			for(ParseObject pbo : list) {
+				Log.d(TAG, "Ok here we go");
 				p.blocks.add(PrayerBlock.getBlockFromParse(pbo));
 			}
 			
@@ -76,7 +77,7 @@ public class Prayer {
 	public void saveToParse() {
 		if ( pObj == null ) {
 			pObj = ParseObject.create(PRAYER);
-			pObj.add(NAME, UUID.randomUUID().toString());
+			pObj.put(NAME, UUID.randomUUID().toString());
 		}
 		Log.d(TAG,"SAVING Prayer");
 		final ParseObject fo = pObj;
@@ -99,9 +100,9 @@ public class Prayer {
 		Prayer p = new Prayer();
 		p.currentPrayer = 0;
 		PrayerBlock b = new PrayerBlock();
-		b.comment = "hello world - comment";
-		b.reference = "Hebrews 5:7";
-		b.verse = "Loud cries and tears";
+		b.comment = "Loading";
+		b.reference = "Prayer";
+		b.verse = "Loading";
 		
 		b.location = new Location("");
 		b.location.setLatitude(33.4);
@@ -128,18 +129,31 @@ public class Prayer {
 	}
 	
 	public void next() {
-		currentPrayer = 1;
+		if (currentPrayer < blocks.size() ) {
+			currentPrayer = currentPrayer+1;
+		}
 	}
 	
 	public PrayerBlock getCurrentBlock() {
-		Log.d("SIZE", ""+blocks.size());
-		Log.d("INDEX", ""+currentPrayer);
-		
+//		Log.d("SIZE", ""+blocks.size());
+//		Log.d("INDEX", ""+currentPrayer);
+		//Log.d(TAG, "stuff: " + blocks.get(currentPrayer).reference);
+		if (currentPrayer == blocks.size()) {
+			return blocks.get(0);
+		}
 		return blocks.get(currentPrayer);
 	}
 	
 	public void addBlock(PrayerBlock b){
 		blocks.add(b);
+	}
+	
+	public int getBlockCount() {
+		return blocks.size();
+	}
+	
+	public int getCurrentPrayerIndex(){
+		return currentPrayer;
 	}
 
 }

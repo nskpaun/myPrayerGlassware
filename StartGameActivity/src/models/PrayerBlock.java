@@ -31,7 +31,9 @@ public class PrayerBlock {
 	
 	public static PrayerBlock getBlockFromParse(ParseObject o){
 		
-		Log.d(TAG,"Getting PB from PARSE");
+		Log.d(TAG,"Getting PB from PARSER");
+		
+		Log.d(TAG, "Object" + o.toString());
 		
 		PrayerBlock pb = new PrayerBlock();
 		
@@ -50,12 +52,12 @@ public class PrayerBlock {
 			o = ParseObject.create("PrayerBlock");
 		}
 		
-		o.add(PARENT, prayer);
-		o.add(VERSE, verse);
-		o.add(REF, reference);
-		o.add(COMM, comment);
-		o.add(LAT, location.getLatitude());
-		o.add(LONG, location.getLongitude());
+		o.put(PARENT, prayer);
+		o.put(VERSE, verse);
+		o.put(REF, reference);
+		o.put(COMM, comment);
+		o.put(LAT, location.getLatitude());
+		o.put(LONG, location.getLongitude());
 		
 		return o;
 	}

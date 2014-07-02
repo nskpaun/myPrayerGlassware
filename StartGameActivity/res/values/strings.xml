@@ -25,7 +25,7 @@
     <string name="tap_for_options">Tap for options</string>
 
     <!-- Text displayed on the result summary card when the game ended because time ran out. -->
-    <string name="game_over">Game over</string>
+    <string name="game_over">You\'re Done!</string>
 
     <!-- Text displayed on the result summary card when the game ended because all phrases were
          guessed correctly. -->

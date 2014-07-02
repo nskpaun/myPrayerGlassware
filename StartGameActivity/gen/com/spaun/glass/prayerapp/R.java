@@ -44,27 +44,33 @@ public final class R {
         public static final int ic_help_50=0x7f020001;
         public static final int ic_phrase_correct_30=0x7f020002;
         public static final int ic_phrase_missed_30=0x7f020003;
+        public static final int swipe_down=0x7f020004;
+        public static final int swipe_left=0x7f020005;
+        public static final int swipe_right=0x7f020006;
+        public static final int swipe_up=0x7f020007;
     }
     public static final class id {
-        public static final int comment_content=0x7f0c000a;
-        public static final int game_state=0x7f0c0004;
-        public static final int image=0x7f0c000d;
-        public static final int instructions=0x7f0c0011;
-        public static final int message=0x7f0c000b;
-        public static final int new_game=0x7f0c000f;
-        public static final int phrase=0x7f0c000e;
+        public static final int comment_content=0x7f0c000c;
+        public static final int directionImage=0x7f0c0004;
+        public static final int game_state=0x7f0c0006;
+        public static final int image=0x7f0c000f;
+        public static final int instructions=0x7f0c0013;
+        public static final int message=0x7f0c000d;
+        public static final int new_game=0x7f0c0011;
+        public static final int phrase=0x7f0c0010;
         public static final int phrase_flipper=0x7f0c0000;
-        public static final int phrase_primary=0x7f0c0001;
-        public static final int phrase_secondary=0x7f0c0002;
-        public static final int ref_content=0x7f0c0008;
-        public static final int score_summary=0x7f0c000c;
-        public static final int setup=0x7f0c0012;
-        public static final int setup_text=0x7f0c0006;
-        public static final int start_prayer_walk=0x7f0c0010;
-        public static final int status_bar=0x7f0c0003;
-        public static final int timer=0x7f0c0005;
-        public static final int tip_tap_for_options=0x7f0c0007;
-        public static final int verse_content=0x7f0c0009;
+        public static final int ref_content=0x7f0c000a;
+        public static final int reference_text=0x7f0c0003;
+        public static final int score_summary=0x7f0c000e;
+        public static final int setup=0x7f0c0014;
+        public static final int setup_text=0x7f0c0008;
+        public static final int start_prayer_walk=0x7f0c0012;
+        public static final int status_bar=0x7f0c0005;
+        public static final int timer=0x7f0c0007;
+        public static final int tip_tap_for_options=0x7f0c0009;
+        public static final int verse_content=0x7f0c000b;
+        public static final int verse_text=0x7f0c0002;
+        public static final int verse_wrapper=0x7f0c0001;
     }
     public static final class integer {
         /**  The duration of the slide animations used by the in-game ViewFlipper. 
