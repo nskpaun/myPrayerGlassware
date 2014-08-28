@@ -71,7 +71,7 @@ public class StartGameActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        Parse.initialize(this, "8o2HBoyxUCEblmiEc8N4OMvzaejGJfpk8ksPgejq", "GUTc0hHLZWnhGrmZKr87GZwxKJKFnHtSfEzIhj3n");
+        Parse.initialize(this, "Get your credentials", "from parse.com");
         
         setContentView(R.layout.activity_start_game);
 

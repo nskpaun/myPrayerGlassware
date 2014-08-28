@@ -28,14 +28,13 @@ public class PrayerLocationListener extends Service implements LocationListener{
 		if (previousLocation == null) {
 			previousLocation = location;
 		} else {
-			if ( Math.abs(location.getLatitude() - previousLocation.getLatitude()) > 0.00001) {
-				bga.updateDisplay();
-			} else if (Math.abs(location.getLatitude() - previousLocation.getLatitude()) > 0.00001) {
-				bga.updateDisplay();
-			}
+//			if ( Math.abs(location.getLatitude() - previousLocation.getLatitude()) > 0.00001) {
+//				bga.updateDisplay();
+//			} else if (Math.abs(location.getLatitude() - previousLocation.getLatitude()) > 0.00001) {
+//				bga.updateDisplay();
+//			}
 		}
-		Log.d(TAG, "lat "+ location.getLatitude() +" Long" + location.getLongitude());
-		
+		Log.d(TAG, "lat "+ location.getLatitude() +" Long" + location.getLongitude());		
 	}
 
 	@Override

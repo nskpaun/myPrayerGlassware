@@ -131,7 +131,7 @@ public abstract class BaseGameActivity extends Activity {
 
         mModel = createCharadesModel();
         superPrayer = createPrayerModel();
-        updateDisplay();
+        updateDisplay(false);
     }
 
     @Override
@@ -186,9 +186,7 @@ public abstract class BaseGameActivity extends Activity {
             public void run() {
                 if (!mModel.areAllPhrasesGuessedCorrectly()) {
                     mPhraseFlipper.showNext();
-                    updateDisplay();
-
-                    // Re-enable gesture handling after the delay has passed.
+                    updateDisplay(false);
                     setGesturesEnabled(true);
                 }
             }
@@ -200,17 +198,17 @@ public abstract class BaseGameActivity extends Activity {
         mModel.pass();
         playSoundEffect(Sounds.SELECTED);
         mPhraseFlipper.showNext();
-        updateDisplay();
+        updateDisplay(true);
     }
 
     /** Updates the main phrase label and score bar with the current state of the game. */
-    public void updateDisplay() {
+    public void updateDisplay(boolean next) {
         getCurrentTextView().setText(superPrayer.getCurrentBlock().verse);
         TextView refText = (TextView) mPhraseFlipper.findViewById(R.id.reference_text);
         refText.setText(superPrayer.getCurrentBlock().reference);
         getCurrentTextView().setTextColor(Color.WHITE);
         mGameState.setText(buildScoreBar());
-        superPrayer.next();
+        if (next) superPrayer.next();
     }
 
     /**

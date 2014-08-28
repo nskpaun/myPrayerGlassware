@@ -63,7 +63,7 @@ public class GameplayActivity extends BaseGameActivity implements Prayer.PrayerC
     private final Handler mHandler = new Handler();
     int interval = 3;
     int totalTime = 3;
-    boolean scorable = false;
+    boolean scorable = true;
     ImageView direction;
     
     OrientationManager orientationManager;
@@ -86,7 +86,7 @@ public class GameplayActivity extends BaseGameActivity implements Prayer.PrayerC
                 endGame();
             } else if ( mSecondsRemaining%TimeUnit.MINUTES.toSeconds(interval) == 0 ) {
             	if(scorable) {
-            		scoringCommand();
+            		//scoringCommand();
             	} else {
             		nextTick();
             	}
@@ -181,9 +181,9 @@ public class GameplayActivity extends BaseGameActivity implements Prayer.PrayerC
     @Override
     protected void handleGameGesture(Gesture gesture) {
         switch (gesture) {
-            case TAP:
-                scoringCommand();
-                break;
+//            case TAP:
+//                scoringCommand();
+//                break;
 //            case SWIPE_RIGHT:
 //                pass();
 //                break;
@@ -258,7 +258,7 @@ public class GameplayActivity extends BaseGameActivity implements Prayer.PrayerC
         updateTimer();
         //nextTick();
 		Log.d(TAG, "hi" + p.getBlockCount());
-		updateDisplay();
+		updateDisplay(false);
 		
 	}
 
@@ -305,8 +305,11 @@ public class GameplayActivity extends BaseGameActivity implements Prayer.PrayerC
 		Location blockLocation = superPrayer.getCurrentBlock().location;
 		
 		float circleDistance = MathUtils.getDistance(myLocation.getLatitude(), myLocation.getLongitude(), blockLocation.getLatitude(), blockLocation.getLongitude());
+		Log.d(TAG, "blockLocation: lat " + blockLocation.getLatitude() + " long: " + blockLocation.getLongitude());
 		Log.d(TAG, "circleDist: " + circleDistance);
-		if ( circleDistance < 0.010 ) {
+		if ( circleDistance < 0.020  ) {
+			//scorable = false;
+			superPrayer.next();
 			scoringCommand();
 		}
 		
